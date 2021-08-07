@@ -84,3 +84,13 @@ Route::post('home-page/update_testimonial', 'HomeController@update_testimonial')
 
 Route::get('/settings', 'Settings@index')->name('settings.index');
 Route::post('settings/store', 'Settings@store')->name('settings.store');
+
+
+//Academics
+
+Route::get('academics/syllabus', 'Academics@syllabus')->name('academics.syllabus');
+Route::get('academics/create_syllabus', 'Academics@create_syllabus')->name('academics.create_syllabus');
+ Route::post('academics/destroy_syllabus', 'Academics@destroy_syllabus')->name('academics.destroy_syllabus');
+Route::post('academics/store_syllabus', 'Academics@store_syllabus')->name('academics.store_syllabus');
+Route::get('academics/edit_syllabus', 'Academics@edit_syllabus')->name('academics.edit_syllabus');
+Route::post('academics/update_syllabus', 'Academics@update_syllabus')->name('academics.update_syllabus');

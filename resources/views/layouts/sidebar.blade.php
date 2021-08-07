@@ -63,8 +63,27 @@
           </ul>
         </li>
 
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-cog"></i> <span>Academics</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ url('academics/syllabus') }}">MBA Syllabus</a></li>
+            <li><a href="{{ url('home-page/in_focus') }}">Course Allotment</a></li>
+            <!-- <li><a href="{{ url('home-page/events') }}">Events</a></li>
+            <li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
+          </ul>
+        </li>
+
         <li><a href="{{ route('user-management.index') }}"><i class="fa fa-link"></i> <span>User management</span></a></li>
         <li><a href="{{ route('settings.index') }}"><i class="fa fa-link"></i> <span>Settings</span></a></li>
+
+
+   
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>
