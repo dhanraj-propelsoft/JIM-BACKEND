@@ -103,3 +103,14 @@ Route::get('academics/create_course_allotment', 'Academics@create_course_allotme
 Route::post('academics/store_course_allotment', 'Academics@store_course_allotment')->name('academics.store_course_allotment');
 Route::get('academics/edit_course_allotment', 'Academics@edit_course_allotment')->name('academics.edit_course_allotment');
 Route::post('academics/update_course_allotment', 'Academics@update_course_allotment')->name('academics.update_course_allotment');
+
+//Faculty
+
+Route::get('academics/faculty', 'Academics@faculty')->name('academics.faculty');
+Route::get('academics/create_faculty', 'Academics@create_faculty')->name('academics.create_faculty');
+Route::post('academics/destroy_faculty', 'Academics@destroy_faculty')->name('academics.destroy_faculty');
+Route::post('academics/store_faculty', 'Academics@store_faculty')->name('academics.store_faculty');
+Route::get('academics/edit_faculty', 'Academics@edit_faculty')->name('academics.edit_faculty');
+Route::post('academics/update_faculty', 'Academics@update_faculty')->name('academics.update_faculty');
+
+

@@ -13,8 +13,13 @@
                             <label for="faculty" class="col-md-4 control-label">Faculty</label>
 
                             <div class="col-md-6">
-                                <input id="faculty" type="text" class="form-control" name="faculty" value="{{ old('name') }}" required autofocus>
-
+                                <!-- <input id="faculty" type="text" class="form-control" name="faculty" value="{{ old('name') }}" required autofocus> -->
+<select class="form-control" name="faculty" id="faculty" required>
+    <option value="">Select Faculty</option>
+    @foreach($faculty as $f)
+    <option value="{{ $f->id }}">{{$f->faculty_name}}</option>
+    @endforeach
+</select>
                                 @if ($errors->has('faculty'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('faculty') }}</strong>

@@ -14,8 +14,12 @@
                             <label for="faculty" class="col-md-4 control-label">Faculty</label>
 
                             <div class="col-md-6">
-                                <input id="faculty" type="text" class="form-control" name="faculty" value="{{ $course_allotment->faculty }}" required autofocus>
-
+                                <select class="form-control" name="faculty" id="faculty" required>
+    <option value="">Select Faculty</option>
+    @foreach($faculties as $f)
+    <option  <?php if($course_allotment->faculty==$f->id){ echo "selected"; }?> value="{{ $f->id }}">{{$f->faculty_name}}</option>
+    @endforeach
+</select>
                                 @if ($errors->has('faculty'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('faculty') }}</strong>

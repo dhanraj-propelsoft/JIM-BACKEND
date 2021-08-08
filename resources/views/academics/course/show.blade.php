@@ -40,7 +40,7 @@
             @foreach ($course as $key=>$c)
                 <tr role="row" class="odd">
                 <td class="sorting_1">{{ $key+1 }}</td>
-                  <td class="sorting_1">{{ $c->	faculty }}</td>
+                  <td class="sorting_1">{{ $c->	faculty_name }}</td>
                   <td class="hidden-xs">{{ $c->semester }}</td>
                   <td class="hidden-xs">{{ $c->session }}</td>
                   <td class="hidden-xs">{{ $c->total }}</td>

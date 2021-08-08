@@ -73,8 +73,8 @@
           <ul class="treeview-menu">
             <li><a href="{{ url('academics/syllabus') }}">MBA Syllabus</a></li>
             <li><a href="{{ url('academics/course_allotment') }}">Course Allotment</a></li>
-            <!-- <li><a href="{{ url('home-page/events') }}">Events</a></li>
-            <li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
+             <li><a href="{{ url('academics/faculty') }}">Faculty</a></li>
+            <!--<li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
           </ul>
         </li>
 
