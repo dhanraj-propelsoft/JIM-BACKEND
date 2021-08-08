@@ -72,7 +72,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ url('academics/syllabus') }}">MBA Syllabus</a></li>
-            <li><a href="{{ url('home-page/in_focus') }}">Course Allotment</a></li>
+            <li><a href="{{ url('academics/course_allotment') }}">Course Allotment</a></li>
             <!-- <li><a href="{{ url('home-page/events') }}">Events</a></li>
             <li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
           </ul>

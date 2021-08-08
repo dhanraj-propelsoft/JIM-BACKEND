@@ -94,3 +94,12 @@ Route::get('academics/create_syllabus', 'Academics@create_syllabus')->name('acad
 Route::post('academics/store_syllabus', 'Academics@store_syllabus')->name('academics.store_syllabus');
 Route::get('academics/edit_syllabus', 'Academics@edit_syllabus')->name('academics.edit_syllabus');
 Route::post('academics/update_syllabus', 'Academics@update_syllabus')->name('academics.update_syllabus');
+
+//Course Allotment
+
+Route::get('academics/course_allotment', 'Academics@course_allotment')->name('academics.course_allotment');
+Route::get('academics/create_course_allotment', 'Academics@create_course_allotment')->name('academics.create_course_allotment');
+ Route::post('academics/destroy_course_allotment', 'Academics@destroy_course_allotment')->name('academics.destroy_course_allotment');
+Route::post('academics/store_course_allotment', 'Academics@store_course_allotment')->name('academics.store_course_allotment');
+Route::get('academics/edit_course_allotment', 'Academics@edit_course_allotment')->name('academics.edit_course_allotment');
+Route::post('academics/update_course_allotment', 'Academics@update_course_allotment')->name('academics.update_course_allotment');

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Academics_model;
 use App\Syllabus_docs;
+use App\Course_allotment;
 use File;
 
 class Academics extends Controller
@@ -23,9 +24,20 @@ class Academics extends Controller
         return view("academics/syllabus/show",["syllabus"=>$syllabus]);
     }
 
+    public function course_allotment(){
+        $course_allotment=DB::table('course_allotment')
+        ->select("*")
+        ->paginate(5);
+        return view("academics/course/show",['course'=>$course_allotment]);
+    }
+
 
     public function create_syllabus(){
         return view('academics/syllabus/create');
+    }
+
+    public function create_course_allotment(){
+        return view('academics/course/create');
     }
 
 
@@ -65,6 +77,39 @@ class Academics extends Controller
         return redirect()->intended('academics/syllabus');
     }
 
+    public function store_course_allotment(Request $request){
+        $course_allotment = new Course_allotment();
+        if ($request->hasFile('documents')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('documents');
+            $file_name = "course_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $course_allotment->documents = '/images/course_allotment/'. $file_name;
+        }
+        $course_allotment->faculty=$request->input('faculty');
+        $course_allotment->semester=$request->input('semester');
+        $course_allotment->session=$request->input('session');
+        $course_allotment->total=$request->input('total');
+        $course_allotment->description=$request->input('description');
+        $course_allotment->save();
+        return redirect()->intended('academics/course_allotment');
+    }
+
+
+    public function edit_course_allotment(Request $request){
+        $id=$_GET['id'];
+        $course_allotment = Course_allotment::find($id);
+        if ($course_allotment == null) {
+            return redirect()->intended('academics/course_allotment');
+        }
+
+        return view('academics/course/edit', ['course_allotment' => $course_allotment]);
+    }
+
 
 
     public function edit_syllabus(Request $request){
@@ -83,6 +128,13 @@ class Academics extends Controller
         $main_slider = Academics_model::find($id);
         $main_slider->delete();
         return redirect()->intended('academics/syllabus');
+    }
+
+    public function destroy_course_allotment(Request $request){
+        $id=$_GET['id'];
+        $course_allotment = Course_allotment::find($id);
+        $course_allotment->delete();
+        return redirect()->intended('academics/course_allotment');
     }
 
 
@@ -117,6 +169,28 @@ class Academics extends Controller
         Academics_model::where('id', $id)
         ->update($input);
         return redirect()->intended('academics/syllabus');
+    }
+
+
+    public function update_course_allotment(Request $request){
+        $id=$_GET['id'];
+        $course_allotment = Course_allotment::findOrFail($id);
+        $keys = ['faculty', 'semester','session','total','description'];
+        $input = $this->createQueryInput($keys, $request);
+        if ($request->hasFile('documents')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('documents');
+            $file_name = "course_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $input['documents'] = '/images/course_allotment/'. $file_name;
+        }
+        Course_allotment::where('id', $id)
+        ->update($input);
+        return redirect()->intended('academics/course_allotment');
     }
 
 
