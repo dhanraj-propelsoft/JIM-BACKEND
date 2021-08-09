@@ -78,6 +78,22 @@
           </ul>
         </li>
 
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-cog"></i> <span>Admission</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ url('admission/eligiblity') }}">Eligiblity</a></li>
+            <li><a href="{{ url('admission/enterance_test') }}">Enterance Test</a></li>
+             <li><a href="{{ url('admission/criteria') }}">Selection Criteria</a></li>
+             <li><a href="{{ url('admission/shortlisting') }}">Short Listing</a></li>
+            <!--<li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
+          </ul>
+        </li>
+
         <li><a href="{{ route('user-management.index') }}"><i class="fa fa-link"></i> <span>User management</span></a></li>
         <li><a href="{{ route('settings.index') }}"><i class="fa fa-link"></i> <span>Settings</span></a></li>
 

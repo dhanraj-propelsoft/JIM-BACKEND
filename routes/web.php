@@ -113,4 +113,42 @@ Route::post('academics/store_faculty', 'Academics@store_faculty')->name('academi
 Route::get('academics/edit_faculty', 'Academics@edit_faculty')->name('academics.edit_faculty');
 Route::post('academics/update_faculty', 'Academics@update_faculty')->name('academics.update_faculty');
 
+// Admission
 
+Route::get('admission/eligiblity', 'Admission@eligiblity')->name('admission.eligiblity');
+Route::get('admission/create_eligiblity', 'Admission@create_eligiblity')->name('admission.create_eligiblity');
+Route::post('admission/destroy_eligiblity', 'Admission@destroy_eligiblity')->name('admission.destroy_eligiblity');
+Route::post('admission/store_eligiblity', 'Admission@store_eligiblity')->name('admission.store_eligiblity');
+Route::get('admission/edit_eligiblity', 'Admission@edit_eligiblity')->name('admission.edit_eligiblity');
+Route::post('admission/update_eligiblity', 'Admission@update_eligiblity')->name('admission.update_eligiblity');
+
+
+//Enterence Test
+
+Route::get('admission/enterance_test', 'Admission@enterance_test')->name('admission.enterance_test');
+Route::get('admission/create_enterance_test', 'Admission@create_enterance_test')->name('admission.create_enterance_test');
+Route::post('admission/destroy_enterance_test', 'Admission@destroy_enterance_test')->name('admission.destroy_enterance_test');
+Route::post('admission/store_enterance_test', 'Admission@store_enterance_test')->name('admission.store_enterance_test');
+Route::get('admission/edit_enterance_test', 'Admission@edit_enterance_test')->name('admission.edit_enterance_test');
+Route::post('admission/update_enterance_test', 'Admission@update_enterance_test')->name('admission.update_enterance_test');
+
+
+//Selection Criteria
+
+Route::get('admission/criteria', 'Admission@criteria')->name('admission.criteria');
+Route::get('admission/create_criteria', 'Admission@create_criteria')->name('admission.create_criteria');
+Route::post('admission/destroy_criteria', 'Admission@destroy_criteria')->name('admission.destroy_criteria');
+Route::post('admission/store_criteria', 'Admission@store_criteria')->name('admission.store_criteria');
+Route::get('admission/edit_criteria', 'Admission@edit_criteria')->name('admission.edit_criteria');
+Route::post('admission/update_criteria', 'Admission@update_criteria')->name('admission.update_criteria');
+
+
+//Short Listing 
+
+
+Route::get('admission/shortlisting', 'Admission@shortlisting')->name('admission.shortlisting');
+Route::get('admission/create_shortlisting', 'Admission@create_shortlisting')->name('admission.create_shortlisting');
+Route::post('admission/destroy_shortlisting', 'Admission@destroy_shortlisting')->name('admission.destroy_shortlisting');
+Route::post('admission/store_shortlisting', 'Admission@store_shortlisting')->name('admission.store_shortlisting');
+Route::get('admission/edit_shortlisting', 'Admission@edit_shortlisting')->name('admission.edit_shortlisting');
+Route::post('admission/update_shortlisting', 'Admission@update_shortlisting')->name('admission.update_shortlisting');
