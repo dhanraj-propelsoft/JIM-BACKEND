@@ -79,7 +79,7 @@ class HomeController extends Controller
             $image = $request->file('picture');
             $file_name = "slider_" . time() . '.' . $image->getClientOriginalExtension();
             $image->move(base_path() . '/public/images/main_sliders/', $file_name);
-            $main_sliders->image = '/images/main_sliders/'. $file_name;
+            $main_sliders->image = 'public/images/main_sliders/'. $file_name;
         }
         $main_sliders->title=$request->input('title');
         $main_sliders->content=$request->input('content');
@@ -113,6 +113,7 @@ class HomeController extends Controller
 
 
     public function store_events(Request $request){
+
         $events = new Events();
         if ($request->hasFile('picture')) {
             // $path=base_path() . '/images/main_sliders/';
@@ -213,7 +214,7 @@ class HomeController extends Controller
             $image = $request->file('picture');
             $file_name = "slider_" . time() . '.' . $image->getClientOriginalExtension();
             $image->move(base_path() . '/public/images/main_sliders/', $file_name);
-            $input['image'] = '/images/main_sliders/'. $file_name;
+            $input['image'] = 'public/images/main_sliders/'. $file_name;
         }
         
         Main_sliders::where('id', $id)

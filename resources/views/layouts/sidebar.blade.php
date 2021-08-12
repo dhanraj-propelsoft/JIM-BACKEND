@@ -18,7 +18,7 @@
 
       <!-- search form (Optional) -->
       <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
+        <div class="input-group" style="display:none">
           <input type="text" name="q" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
@@ -50,22 +50,35 @@
         </li> -->
 
         <li class="treeview">
-          <a href="#"><i class="fa fa-cog"></i> <span>Home Page</span>
+          <a href="#"><i class="fa fa-home"></i> <span>Home Page</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ url('home-page/main_slider') }}">Main slider</a></li>
-            <li><a href="{{ url('home-page/in_focus') }}">In Focus</a></li>
             <li><a href="{{ url('home-page/events') }}">Events</a></li>
+            <li><a href="{{ url('home-page/in_focus') }}">In Focus</a></li>
             <li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li>
           </ul>
         </li>
+          <li class="treeview">
+                  <a href="#"><i class="fa fa-book"></i> <span>Academics</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a data-link="MBADetails" href="{{ url('Academics/MBADetails') }}">MBA</a></li>
+                    <li><a href="{{ url('Academics/phdDetails') }}">PH.D</a></li>
+                    <li><a href="{{ url('Academics/researchDetails') }}">Research</a></li>
+                    <li><a href="{{ url('Academics/learningDetails') }}">Learning</a></li>
+                  </ul>
+                </li>
 
 
         <li class="treeview">
-          <a href="#"><i class="fa fa-cog"></i> <span>Academics</span>
+          <a href="#"><i class="fa fa-graduation-cap"></i> <span>Academics</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -77,25 +90,72 @@
             <!--<li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
           </ul>
         </li>
-
-
-        <li class="treeview">
-          <a href="#"><i class="fa fa-cog"></i> <span>Admission</span>
+ <li class="treeview">
+          <a href="#"><i class="fa fa-users"></i> <span>Faculty</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('admission/eligiblity') }}">Eligiblity</a></li>
-            <li><a href="{{ url('admission/enterance_test') }}">Enterance Test</a></li>
-             <li><a href="{{ url('admission/criteria') }}">Selection Criteria</a></li>
-             <li><a href="{{ url('admission/shortlisting') }}">Short Listing</a></li>
-            <!--<li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
+            <li><a href="#">Academic Staff</a></li>
+
           </ul>
         </li>
 
-        <li><a href="{{ route('user-management.index') }}"><i class="fa fa-link"></i> <span>User management</span></a></li>
-        <li><a href="{{ route('settings.index') }}"><i class="fa fa-link"></i> <span>Settings</span></a></li>
+
+
+                  <li class="treeview">
+                          <a href="#"><i class="fa fa-university"></i> <span>Traning&Placements</span>
+                                    <span class="pull-right-container">
+                                      <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                  </a>
+                                  <ul class="treeview-menu">
+                                    <li><a href="#">Our Recruiters</a></li>
+                                    <li><a href="#">Brouchers</a></li>
+                                     <li><a href="{{ url('admission/criteria') }}">Student Training </a></li>
+                                  </ul>
+                                </li>
+
+                                <li class="treeview">
+                                   <a href="#"><i class="fa fa-life-ring"></i> <span>Life@JIM</span>
+                                   <span class="pull-right-container">
+                                   <i class="fa fa-angle-left pull-right"></i>
+                                   </span>
+                                   </a>
+                                   <ul class="treeview-menu">
+                                        <li><a href="#">Facilities</a></li>
+                                   </ul>
+                                </li>
+                                <li class="treeview">
+                                      <a href="#"><i class="fa fa-calendar "></i> <span>Event</span>
+                                           <span class="pull-right-container">
+                                           <i class="fa fa-angle-left pull-right"></i>
+                                           </span>
+                                      </a>
+                                      <ul class="treeview-menu">
+                                             <li><a href="#">Events Photo Gallery</a></li>
+                                             <li><a href="#">Guest Speakers</a></li>
+                                             <li><a href="#">CEO Of Month</a></li>
+                                      </ul>
+                                </li>
+                                  <li class="treeview">
+                                                  <a href="#"><i class="fa fa-university"></i> <span>Admission</span>
+                                                    <span class="pull-right-container">
+                                                      <i class="fa fa-angle-left pull-right"></i>
+                                                    </span>
+                                                  </a>
+                                                  <ul class="treeview-menu">
+                                                    <li><a href="{{ url('admission/eligiblity') }}">Eligiblity</a></li>
+                                                    <li><a href="{{ url('admission/enterance_test') }}">Enterance Test</a></li>
+                                                     <li><a href="{{ url('admission/criteria') }}">Selection Criteria</a></li>
+                                                     <li><a href="{{ url('admission/shortlisting') }}">Short Listing</a></li>
+                                                    <!--<li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
+                                                  </ul>
+                                                </li>
+
+        <li><a href="#"><i class="fa fa-info-circle "></i> <span>About JIM</span></a></li>
+        <li><a href="#"><i class="fa fa-phone"></i> <span>Contact Us</span></a></li>
 
 
    

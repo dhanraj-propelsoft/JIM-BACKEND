@@ -27,7 +27,7 @@
                             <label for="content" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
-                                <textarea id="content" name="description" rows="4" cols="50" required autofocus>{{ old('description') }}
+                                <textarea id="content" name="description" rows="4" cols="50"  autofocus>{{ old('description') }}
 </textarea>
 
                                 @if ($errors->has('description'))
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label for="avatar" class="col-md-4 control-label" >Image</label>
                             <div class="col-md-6">
-                                <input type="file" id="picture" name="picture" required >
+                                <input type="file" id="picture" name="picture"  >
                             </div>
                         </div>
                         <div class="form-group">

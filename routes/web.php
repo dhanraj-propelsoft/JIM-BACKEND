@@ -152,3 +152,10 @@ Route::post('admission/destroy_shortlisting', 'Admission@destroy_shortlisting')-
 Route::post('admission/store_shortlisting', 'Admission@store_shortlisting')->name('admission.store_shortlisting');
 Route::get('admission/edit_shortlisting', 'Admission@edit_shortlisting')->name('admission.edit_shortlisting');
 Route::post('admission/update_shortlisting', 'Admission@update_shortlisting')->name('admission.update_shortlisting');
+
+//Academics BY DHANa
+
+Route::get('Academics/MBADetails', 'Academics\AcademicController@MBADetail');
+Route::get('Academics/phdDetails', 'Academics\AcademicController@PHDDetail');
+Route::get('Academics/researchDetails', 'Academics\AcademicController@ResearchDetail');
+Route::get('Academics/learningDetails', 'Academics\AcademicController@LearningDetail');
