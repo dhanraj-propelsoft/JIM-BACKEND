@@ -410,6 +410,88 @@ class Admission extends Controller
 
 
 
+    public function hostel(){
+        $documents=DB::table('hostel_accom')
+        ->select("*")
+        ->paginate(5);
+        return view("admission/hostel/show",["documents"=>$documents]);
+    }
+
+    public function create_hostel(){
+        return view('admission/hostel/create');
+    }
+
+
+    public function store_hostel(Request $request){
+        //return $request->all();
+        $documents = new Hostel();
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "course_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $documents->attachment = '/images/course_allotment/'. $file_name;
+        }
+
+        $documents->title=$request->input('title');
+        $documents->content=$request->input('content');
+        $documents->status=1;
+        $documents->save();
+        return redirect()->intended('admission/hostel');
+    }
+
+
+    public function edit_hostel(Request $request){
+        $id=$_GET['id'];
+        $document = Hostel::find($id);
+        if ($document == null) {
+            return redirect()->intended('admission/hostel');
+        }
+
+        return view('admission/hostel/edit', ['documents' => $document]);
+    }
+
+
+
+    public function update_hostel(Request $request){
+        $id=$_GET['id'];
+        $document = Hostel::findOrFail($id);
+
+       
+        $keys = ['title', 'content'];
+        $input = $this->createQueryInput($keys, $request);
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "infocus_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $input['attachment'] = '/images/course_allotment/'. $file_name;
+        }
+
+        Hostel::where('id', $id)
+        ->update($input);
+        return redirect()->intended('admission/hostel');
+    }
+
+
+
+    public function destroy_hostel(Request $request){
+        $id=$_GET['id'];
+        $documents = Hostel::find($id);
+        $documents->delete();
+        return redirect()->intended('admission/hostel');
+    }
+
+
+
 
 
     private function createQueryInput($keys, $request) {
