@@ -8,6 +8,9 @@ use App\Eligiblity;
 use App\Enterance;
 use App\Criteria;
 use App\Shortlisting;
+use App\Documents;
+use App\Online_application;
+use App\Hostel;
 use File;
 
 class Admission extends Controller
@@ -245,6 +248,85 @@ class Admission extends Controller
 
 
 
+    public function documents(){
+        $documents=DB::table('supporting_documents')
+        ->select("*")
+        ->paginate(5);
+        return view("admission/documents/show",["documents"=>$documents]);
+    }
+
+    public function create_documents(){
+        return view('admission/documents/create');
+    }
+
+
+    public function store_documents(Request $request){
+        //return $request->all();
+        $documents = new Documents();
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "course_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $documents->attachment = '/images/course_allotment/'. $file_name;
+        }
+
+        $documents->title=$request->input('title');
+        $documents->content=$request->input('content');
+        $documents->status=1;
+        $documents->save();
+        return redirect()->intended('admission/documents');
+    }
+
+
+    public function edit_documents(Request $request){
+        $id=$_GET['id'];
+        $document = Documents::find($id);
+        if ($document == null) {
+            return redirect()->intended('admission/criteria');
+        }
+
+        return view('admission/documents/edit', ['documents' => $document]);
+    }
+
+
+
+    public function update_documents(Request $request){
+        $id=$_GET['id'];
+        $document = Documents::findOrFail($id);
+
+       
+        $keys = ['title', 'content'];
+        $input = $this->createQueryInput($keys, $request);
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "infocus_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $input['attachment'] = '/images/course_allotment/'. $file_name;
+        }
+
+        Documents::where('id', $id)
+        ->update($input);
+        return redirect()->intended('admission/documents');
+    }
+
+
+
+    public function destroy_documents(Request $request){
+        $id=$_GET['id'];
+        $documents = Documents::find($id);
+        $documents->delete();
+        return redirect()->intended('admission/documents');
+    }
 
 
 

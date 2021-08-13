@@ -161,3 +161,32 @@ Route::get('Academics/researchDetails', 'Academics\AcademicController@ResearchDe
 Route::get('Academics/learningDetails', 'Academics\AcademicController@LearningDetail');
 //Diva
 Route::post('Academics/store_learning', 'Academics\AcademicController@store_learning')->name('academics.store_learning');
+
+
+//Supporting Documents
+
+Route::get('admission/documents', 'Admission@documents')->name('admission.documents');
+Route::get('admission/create_documents', 'Admission@create_documents')->name('admission.create_documents');
+Route::post('admission/destroy_documents', 'Admission@destroy_documents')->name('admission.destroy_documents');
+Route::post('admission/store_documents', 'Admission@store_documents')->name('admission.store_documents');
+Route::get('admission/edit_documents', 'Admission@edit_documents')->name('admission.edit_documents');
+Route::post('admission/update_documents', 'Admission@update_documents')->name('admission.update_documents');
+
+
+//Online Application
+
+Route::get('admission/online_application', 'Admission@online_application')->name('admission.online_application');
+Route::get('admission/create_online_application', 'Admission@create_online_application')->name('admission.create_online_application');
+Route::post('admission/destroy_online_application', 'Admission@destroy_online_application')->name('admission.destroy_online_application');
+Route::post('admission/store_online_application', 'Admission@store_online_application')->name('admission.store_online_application');
+Route::get('admission/edit_online_application', 'Admission@edit_online_application')->name('admission.edit_online_application');
+Route::post('admission/update_online_application', 'Admission@update_online_application')->name('admission.update_online_application');
+
+//Hostel
+
+Route::get('admission/hostel', 'Admission@hostel')->name('admission.hostel');
+Route::get('admission/create_hostel', 'Admission@create_hostel')->name('admission.create_hostel');
+Route::post('admission/destroy_hostel', 'Admission@destroy_hostel')->name('admission.destroy_hostel');
+Route::post('admission/store_hostel', 'Admission@store_hostel')->name('admission.store_hostel');
+Route::get('admission/edit_hostel', 'Admission@edit_hostel')->name('admission.edit_hostel');
+Route::post('admission/update_hostel', 'Admission@update_hostel')->name('admission.update_hostel');

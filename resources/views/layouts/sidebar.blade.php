@@ -150,6 +150,9 @@
                                                     <li><a href="{{ url('admission/enterance_test') }}">Enterance Test</a></li>
                                                      <li><a href="{{ url('admission/criteria') }}">Selection Criteria</a></li>
                                                      <li><a href="{{ url('admission/shortlisting') }}">Short Listing</a></li>
+                                                     <li><a href="{{ url('admission/documents') }}">Supporting documents</a></li>
+                                                     <li><a href="{{ url('admission/online_application') }}">Online Application</a></li>
+                                                     <li><a href="{{ url('admission/hostel') }}">Hostel Accommodation</a></li>
                                                     <!--<li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
                                                   </ul>
                                                 </li>
