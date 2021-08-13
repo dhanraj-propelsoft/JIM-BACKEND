@@ -328,6 +328,86 @@ class Admission extends Controller
         return redirect()->intended('admission/documents');
     }
 
+    public function online_application(){
+        $documents=DB::table('online_application')
+        ->select("*")
+        ->paginate(5);
+        return view("admission/online/show",["documents"=>$documents]);
+    }
+
+    public function create_online_application(){
+        return view('admission/online/create');
+    }
+
+
+    public function store_online_application(Request $request){
+        //return $request->all();
+        $documents = new Online_application();
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "course_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $documents->attachment = '/images/course_allotment/'. $file_name;
+        }
+
+        $documents->title=$request->input('title');
+        $documents->content=$request->input('content');
+        $documents->status=1;
+        $documents->save();
+        return redirect()->intended('admission/online_application');
+    }
+
+
+    public function edit_online_application(Request $request){
+        $id=$_GET['id'];
+        $document = Online_application::find($id);
+        if ($document == null) {
+            return redirect()->intended('admission/online_application');
+        }
+
+        return view('admission/online/edit', ['documents' => $document]);
+    }
+
+
+
+    public function update_online_application(Request $request){
+        $id=$_GET['id'];
+        $document = Online_application::findOrFail($id);
+
+       
+        $keys = ['title', 'content'];
+        $input = $this->createQueryInput($keys, $request);
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "infocus_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $input['attachment'] = '/images/course_allotment/'. $file_name;
+        }
+
+        Online_application::where('id', $id)
+        ->update($input);
+        return redirect()->intended('admission/online_application');
+    }
+
+
+
+    public function destroy_online_application(Request $request){
+        $id=$_GET['id'];
+        $documents = Online_application::find($id);
+        $documents->delete();
+        return redirect()->intended('admission/online_application');
+    }
+
 
 
 
