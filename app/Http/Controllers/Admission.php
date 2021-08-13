@@ -25,9 +25,20 @@ class Admission extends Controller
         return view("admission/eligiblity/show",["eligiblity"=>$eligiblity]);
     }
 
+
+    public function shortlisting(){
+        $short=DB::table('admission_shortlisting')
+        ->select("*")
+        ->paginate(5);
+        return view("admission/shortlist/show",["short"=>$short]);
+    }
+
     public function create_eligiblity(){
         return view('admission/eligiblity/create');
     }
+
+
+    
 
 
     public function store_eligiblity(Request $request){
@@ -181,6 +192,56 @@ class Admission extends Controller
         return redirect()->intended('admission/criteria');
     }
 
+
+
+
+
+    public function create_shortlisting(){
+        return view('admission/shortlist/create');
+    }
+
+
+    public function store_shortlisting(Request $request){
+        //return $request->all();
+        $criteria = new Shortlisting();
+        $criteria->title=$request->input('title');
+        $criteria->content=$request->input('content');
+        $criteria->status=1;
+        $criteria->save();
+        return redirect()->intended('admission/shortlisting');
+    }
+
+
+    public function edit_shortlisting(Request $request){
+        $id=$_GET['id'];
+        $short = Shortlisting::find($id);
+        if ($short == null) {
+            return redirect()->intended('admission/shortlisting');
+        }
+
+        return view('admission/shortlist/edit', ['short' => $short]);
+    }
+
+
+
+    public function update_shortlisting(Request $request){
+        $id=$_GET['id'];
+        $short = Shortlisting::findOrFail($id);
+        $keys = ['title', 'content'];
+        $input = $this->createQueryInput($keys, $request);
+        Shortlisting::where('id', $id)
+        ->update($input);
+        return redirect()->intended('admission/shortlisting');
+    }
+
+
+
+    public function destroy_shortlisting(Request $request){
+        $id=$_GET['id'];
+        $short = Shortlisting::find($id);
+        $short->delete();
+        return redirect()->intended('admission/shortlisting');
+    }
 
 
 

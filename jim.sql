@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 04, 2021 at 08:36 AM
+-- Generation Time: Aug 13, 2021 at 05:21 PM
 -- Server version: 5.7.33-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
@@ -19,6 +19,82 @@ SET time_zone = "+00:00";
 --
 -- Database: `jim`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admission_criteria`
+--
+
+CREATE TABLE `admission_criteria` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admission_eligiblity`
+--
+
+CREATE TABLE `admission_eligiblity` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admission_eligiblity`
+--
+
+INSERT INTO `admission_eligiblity` (`id`, `title`, `content`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'testra', '<p>dsaf</p>', 1, '2021-08-09 11:37:53', '2021-08-09 11:37:53'),
+(3, 'dcsaf', '<p>fdasf</p>', 1, '2021-08-09 12:12:28', '2021-08-09 12:12:28'),
+(4, 'sdg', '<p>gsdzfg</p>', 1, '2021-08-09 12:13:10', '2021-08-09 12:13:10'),
+(5, 'fdsaf', '<p>fgsdaf</p>', 1, '2021-08-09 12:13:31', '2021-08-09 12:13:31'),
+(6, 'dfsfgsda', '<p>gfsadg</p>', 1, '2021-08-09 12:13:53', '2021-08-09 12:13:53'),
+(7, 'gsdfg', '<p>dfgdsfgh</p>', 1, '2021-08-09 12:14:33', '2021-08-09 12:14:33'),
+(8, 'nv', '<p>gncv</p>', 1, '2021-08-09 12:15:41', '2021-08-09 12:15:41'),
+(9, 'dwafda', '<p>fsadf</p>', 1, '2021-08-09 12:19:09', '2021-08-09 12:19:09'),
+(10, 'cfda', '<p>fdsfg</p>', 1, '2021-08-13 11:43:57', '2021-08-13 11:43:57'),
+(11, 'asdff', '<p>sdfgsd</p>', 1, '2021-08-13 11:44:06', '2021-08-13 11:44:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admission_enterance`
+--
+
+CREATE TABLE `admission_enterance` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admission_shortlisting`
+--
+
+CREATE TABLE `admission_shortlisting` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -49,6 +125,31 @@ CREATE TABLE `country` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_allotment`
+--
+
+CREATE TABLE `course_allotment` (
+  `id` int(11) NOT NULL,
+  `faculty` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `session` int(11) NOT NULL,
+  `total` varchar(255) NOT NULL,
+  `documents` varchar(255) DEFAULT NULL,
+  `description` text,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course_allotment`
+--
+
+INSERT INTO `course_allotment` (`id`, `faculty`, `semester`, `session`, `total`, `documents`, `description`, `created_at`, `updated_at`) VALUES
+(2, 1, 1, 10, '80', '/images/course_allotment/course_1628421975.pdf', 'dsa', '2021-08-08 11:26:15', '2021-08-08 11:32:04');
 
 -- --------------------------------------------------------
 
@@ -141,6 +242,32 @@ CREATE TABLE `events` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `faculty_master`
+--
+
+CREATE TABLE `faculty_master` (
+  `id` int(11) NOT NULL,
+  `faculty_name` varchar(255) NOT NULL,
+  `designation` varchar(255) NOT NULL,
+  `profile` varchar(255) NOT NULL,
+  `about` text NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `resume` varchar(255) NOT NULL,
+  `facebook` varchar(255) NOT NULL,
+  `linked_in` varchar(255) NOT NULL,
+  `twitter` varchar(255) NOT NULL,
+  `instagram` varchar(255) NOT NULL,
+  `google_plus` varchar(255) NOT NULL,
+  `joined_date` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `in_focus`
 --
 
@@ -153,6 +280,34 @@ CREATE TABLE `in_focus` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `learning`
+--
+
+CREATE TABLE `learning` (
+  `id` int(11) NOT NULL,
+  `communication_course` text,
+  `bridge_course` text,
+  `personal_growth_lab` text,
+  `skill_enhancements` text,
+  `indian_institute_interface` text,
+  `learning_assest` text,
+  `learning_academy` text,
+  `industrial_training` text,
+  `social_involvement` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `learning`
+--
+
+INSERT INTO `learning` (`id`, `communication_course`, `bridge_course`, `personal_growth_lab`, `skill_enhancements`, `indian_institute_interface`, `learning_assest`, `learning_academy`, `industrial_training`, `social_involvement`, `created_at`, `updated_at`) VALUES
+(1, '<p>TEST</p>', '<p>fsdf</p>', '<p>fsd</p>', '<p>fsdf</p>', '<p>fgsdgf</p>', '<p>gfsd</p>', '<p>fdsf</p>', '<p>fsdf</p>', '<p>fsd</p>', '2021-08-13 10:32:32', '2021-08-13 10:32:32');
 
 -- --------------------------------------------------------
 
@@ -175,7 +330,7 @@ CREATE TABLE `main_sliders` (
 --
 
 INSERT INTO `main_sliders` (`id`, `title`, `content`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'sample2', 'Content', '/images/main_sliders/slider_1627735352.png', 1, '2021-07-31 11:52:12', '2021-07-31 12:42:32');
+(3, 'sample2', 'Content', '/images/main_sliders/slider_1627726806.png', 1, '2021-07-31 11:52:12', '2021-07-31 12:42:32');
 
 -- --------------------------------------------------------
 
@@ -249,6 +404,45 @@ CREATE TABLE `state` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `syllabus`
+--
+
+CREATE TABLE `syllabus` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `year` int(11) NOT NULL,
+  `batch` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `syllabus_documents`
+--
+
+CREATE TABLE `syllabus_documents` (
+  `id` int(11) NOT NULL,
+  `syllabus_id` int(11) NOT NULL,
+  `documents` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `syllabus_documents`
+--
+
+INSERT INTO `syllabus_documents` (`id`, `syllabus_id`, `documents`, `status`) VALUES
+(1, 1, '/syllabus/documents_1628333808.png', 1),
+(2, 1, '/syllabus/documents_1628333808.png', 1),
+(4, 2, '/syllabus/documents_1628337675.pdf', 1),
+(5, 2, '/syllabus/documents_1628337675.pdf', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `testimonals`
 --
 
@@ -293,6 +487,30 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `lastname`, `firstna
 --
 
 --
+-- Indexes for table `admission_criteria`
+--
+ALTER TABLE `admission_criteria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admission_eligiblity`
+--
+ALTER TABLE `admission_eligiblity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admission_enterance`
+--
+ALTER TABLE `admission_enterance`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admission_shortlisting`
+--
+ALTER TABLE `admission_shortlisting`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `city`
 --
 ALTER TABLE `city`
@@ -303,6 +521,12 @@ ALTER TABLE `city`
 -- Indexes for table `country`
 --
 ALTER TABLE `country`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `course_allotment`
+--
+ALTER TABLE `course_allotment`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -343,9 +567,21 @@ ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `faculty_master`
+--
+ALTER TABLE `faculty_master`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `in_focus`
 --
 ALTER TABLE `in_focus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `learning`
+--
+ALTER TABLE `learning`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -374,6 +610,18 @@ ALTER TABLE `state`
   ADD KEY `state_country_id_foreign` (`country_id`);
 
 --
+-- Indexes for table `syllabus`
+--
+ALTER TABLE `syllabus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `syllabus_documents`
+--
+ALTER TABLE `syllabus_documents`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `testimonals`
 --
 ALTER TABLE `testimonals`
@@ -391,6 +639,26 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admission_criteria`
+--
+ALTER TABLE `admission_criteria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `admission_eligiblity`
+--
+ALTER TABLE `admission_eligiblity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `admission_enterance`
+--
+ALTER TABLE `admission_enterance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `admission_shortlisting`
+--
+ALTER TABLE `admission_shortlisting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
@@ -400,6 +668,11 @@ ALTER TABLE `city`
 --
 ALTER TABLE `country`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `course_allotment`
+--
+ALTER TABLE `course_allotment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `department`
 --
@@ -426,10 +699,20 @@ ALTER TABLE `employee_salary`
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `faculty_master`
+--
+ALTER TABLE `faculty_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `in_focus`
 --
 ALTER TABLE `in_focus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `learning`
+--
+ALTER TABLE `learning`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `main_sliders`
 --
@@ -450,6 +733,16 @@ ALTER TABLE `m_settings`
 --
 ALTER TABLE `state`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `syllabus`
+--
+ALTER TABLE `syllabus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `syllabus_documents`
+--
+ALTER TABLE `syllabus_documents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `testimonals`
 --

@@ -159,3 +159,5 @@ Route::get('Academics/MBADetails', 'Academics\AcademicController@MBADetail');
 Route::get('Academics/phdDetails', 'Academics\AcademicController@PHDDetail');
 Route::get('Academics/researchDetails', 'Academics\AcademicController@ResearchDetail');
 Route::get('Academics/learningDetails', 'Academics\AcademicController@LearningDetail');
+//Diva
+Route::post('Academics/store_learning', 'Academics\AcademicController@store_learning')->name('academics.store_learning');
