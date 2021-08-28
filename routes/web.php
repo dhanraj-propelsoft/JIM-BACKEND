@@ -190,3 +190,31 @@ Route::post('admission/destroy_hostel', 'Admission@destroy_hostel')->name('admis
 Route::post('admission/store_hostel', 'Admission@store_hostel')->name('admission.store_hostel');
 Route::get('admission/edit_hostel', 'Admission@edit_hostel')->name('admission.edit_hostel');
 Route::post('admission/update_hostel', 'Admission@update_hostel')->name('admission.update_hostel');
+
+//Curriculum
+
+Route::get('admission/curriculum', 'Admission@curriculum')->name('admission.curriculum');
+Route::get('admission/create_curriculum', 'Admission@create_curriculum')->name('admission.create_curriculum');
+Route::post('admission/destroy_curriculum', 'Admission@destroy_curriculum')->name('admission.destroy_curriculum');
+Route::post('admission/store_curriculum', 'Admission@store_curriculum')->name('admission.store_curriculum');
+Route::get('admission/edit_curriculum', 'Admission@edit_curriculum')->name('admission.edit_curriculum');
+Route::post('admission/update_curriculum', 'Admission@update_curriculum')->name('admission.update_curriculum');
+
+
+// Fee Structure
+
+Route::get('admission/fee', 'Admission@fee')->name('admission.fee');
+Route::get('admission/create_fee', 'Admission@create_fee')->name('admission.create_fee');
+Route::post('admission/destroy_fee', 'Admission@destroy_fee')->name('admission.destroy_fee');
+Route::post('admission/store_fee', 'Admission@store_fee')->name('admission.store_fee');
+Route::get('admission/edit_fee', 'Admission@edit_fee')->name('admission.edit_fee');
+Route::post('admission/update_fee', 'Admission@update_fee')->name('admission.update_fee');
+
+// Brochure
+
+Route::get('admission/brochure', 'Admission@brochure')->name('admission.brochure');
+Route::get('admission/create_brochure', 'Admission@create_brochure')->name('admission.create_brochure');
+Route::post('admission/destroy_brochure', 'Admission@destroy_brochure')->name('admission.destroy_brochure');
+Route::post('admission/store_brochure', 'Admission@store_brochure')->name('admission.store_brochure');
+Route::get('admission/edit_brochure', 'Admission@edit_brochure')->name('admission.edit_brochure');
+Route::post('admission/update_brochure', 'Admission@update_brochure')->name('admission.update_brochure');

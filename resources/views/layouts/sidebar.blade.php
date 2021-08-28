@@ -153,6 +153,9 @@
                                                      <li><a href="{{ url('admission/documents') }}">Supporting documents</a></li>
                                                      <li><a href="{{ url('admission/online_application') }}">Online Application</a></li>
                                                      <li><a href="{{ url('admission/hostel') }}">Hostel Accommodation</a></li>
+                                                     <li><a href="{{ url('admission/curriculum') }}">Curriculum</a></li>
+                                                     <li><a href="{{ url('admission/fee') }}">Fee Structure</a></li>
+                                                     <li><a href="{{ url('admission/brochure') }}">Brochure downloadable</a></li>
                                                     <!--<li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li> -->
                                                   </ul>
                                                 </li>

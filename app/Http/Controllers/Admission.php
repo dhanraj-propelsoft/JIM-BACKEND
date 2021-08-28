@@ -11,6 +11,9 @@ use App\Shortlisting;
 use App\Documents;
 use App\Online_application;
 use App\Hostel;
+use App\Curriculam;
+use App\Fee;
+use App\Brochurre;
 use File;
 
 class Admission extends Controller
@@ -490,6 +493,257 @@ class Admission extends Controller
         return redirect()->intended('admission/hostel');
     }
 
+
+
+
+
+
+
+    public function curriculum(){
+        $documents=DB::table('curriculam')
+        ->select("*")
+        ->paginate(5);
+        return view("admission/curriculam/show",["documents"=>$documents]);
+    }
+
+    public function create_curriculum(){
+        return view('admission/curriculam/create');
+    }
+
+
+    public function store_curriculum(Request $request){
+        //return $request->all();
+        $documents = new Curriculam();
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/curriculam/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "course_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/curriculam/', $file_name);
+            $documents->attachment = '/images/curriculam/'. $file_name;
+        }
+
+        $documents->title=$request->input('title');
+        $documents->content=$request->input('content');
+        $documents->status=1;
+        $documents->save();
+        return redirect()->intended('admission/curriculum');
+    }
+
+
+    public function edit_curriculum(Request $request){
+        $id=$_GET['id'];
+        $document = Curriculam::find($id);
+        if ($document == null) {
+            return redirect()->intended('admission/hostel');
+        }
+
+        return view('admission/curriculam/edit', ['documents' => $document]);
+    }
+
+
+
+    public function update_curriculum(Request $request){
+        $id=$_GET['id'];
+        $document = Curriculam::findOrFail($id);
+
+       
+        $keys = ['title', 'content'];
+        $input = $this->createQueryInput($keys, $request);
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/course_allotment/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "infocus_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/course_allotment/', $file_name);
+            $input['attachment'] = '/images/course_allotment/'. $file_name;
+        }
+
+        Curriculam::where('id', $id)
+        ->update($input);
+        return redirect()->intended('admission/curriculum');
+    }
+
+
+
+    public function destroy_curriculum(Request $request){
+        $id=$_GET['id'];
+        $documents = Curriculam::find($id);
+        $documents->delete();
+        return redirect()->intended('admission/curriculum');
+    }
+
+
+
+
+    public function fee(){
+        $documents=DB::table('fee')
+        ->select("*")
+        ->paginate(5);
+        return view("admission/fee/show",["documents"=>$documents]);
+    }
+
+    public function create_fee(){
+        return view('admission/fee/create');
+    }
+
+
+    public function store_fee(Request $request){
+        //return $request->all();
+        $documents = new Fee();
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/fee/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "course_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/fee/', $file_name);
+            $documents->attachment = '/images/fee/'. $file_name;
+        }
+
+        $documents->title=$request->input('title');
+        $documents->content=$request->input('content');
+        $documents->status=1;
+        $documents->save();
+        return redirect()->intended('admission/fee');
+    }
+
+
+    public function edit_fee(Request $request){
+        $id=$_GET['id'];
+        $document = Fee::find($id);
+        if ($document == null) {
+            return redirect()->intended('admission/fee');
+        }
+
+        return view('admission/fee/edit', ['documents' => $document]);
+    }
+
+
+
+    public function update_fee(Request $request){
+        $id=$_GET['id'];
+        $document = Fee::findOrFail($id);
+
+       
+        $keys = ['title', 'content'];
+        $input = $this->createQueryInput($keys, $request);
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/fee/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "infocus_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/fee/', $file_name);
+            $input['attachment'] = '/images/fee/'. $file_name;
+        }
+
+        Fee::where('id', $id)
+        ->update($input);
+        return redirect()->intended('admission/fee');
+    }
+
+
+
+    public function destroy_fee(Request $request){
+        $id=$_GET['id'];
+        $documents = Fee::find($id);
+        $documents->delete();
+        return redirect()->intended('admission/fee');
+    }
+
+
+
+
+    public function brochure(){
+        $documents=DB::table('brochure')
+        ->select("*")
+        ->paginate(5);
+        return view("admission/brochure/show",["documents"=>$documents]);
+    }
+
+    public function create_brochure(){
+        return view('admission/brochure/create');
+    }
+
+
+    public function store_brochure(Request $request){
+        //return $request->all();
+        $documents = new Brochurre();
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/brochure/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "course_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/brochure/', $file_name);
+            $documents->attachment = '/images/brochure/'. $file_name;
+        }
+
+        $documents->title=$request->input('title');
+        $documents->content=$request->input('content');
+        $documents->status=1;
+        $documents->save();
+        return redirect()->intended('admission/brochure');
+    }
+
+
+    public function edit_brochure(Request $request){
+        $id=$_GET['id'];
+        $document = Brochurre::find($id);
+        if ($document == null) {
+            return redirect()->intended('admission/brochure');
+        }
+
+        return view('admission/brochure/edit', ['documents' => $document]);
+    }
+
+
+
+    public function update_brochure(Request $request){
+        $id=$_GET['id'];
+        $document = Brochurre::findOrFail($id);
+
+       
+        $keys = ['title', 'content'];
+        $input = $this->createQueryInput($keys, $request);
+        if ($request->hasFile('attachment')) {
+            // $path=base_path() . '/images/main_sliders/';
+            $path='/public/images/brochure/';
+            // if (!file_exists($path)) {
+            // $result = File::makeDirectory($path, 0777, true);
+            // }
+            $image = $request->file('attachment');
+            $file_name = "infocus_" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(base_path() . '/public/images/brochure/', $file_name);
+            $input['attachment'] = '/images/brochure/'. $file_name;
+        }
+
+        Brochurre::where('id', $id)
+        ->update($input);
+        return redirect()->intended('admission/brochure');
+    }
+
+
+
+    public function destroy_brochure(Request $request){
+        $id=$_GET['id'];
+        $documents = Brochurre::find($id);
+        $documents->delete();
+        return redirect()->intended('admission/brochure');
+    }
 
 
 
