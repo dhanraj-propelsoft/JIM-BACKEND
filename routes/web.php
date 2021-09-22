@@ -218,3 +218,116 @@ Route::post('admission/destroy_brochure', 'Admission@destroy_brochure')->name('a
 Route::post('admission/store_brochure', 'Admission@store_brochure')->name('admission.store_brochure');
 Route::get('admission/edit_brochure', 'Admission@edit_brochure')->name('admission.edit_brochure');
 Route::post('admission/update_brochure', 'Admission@update_brochure')->name('admission.update_brochure');
+
+//Event Gallery
+
+Route::get('events/gallery', 'Events@gallery')->name('events.gallery');
+Route::get('events/create_gallery', 'Events@create_gallery')->name('events.create_gallery');
+Route::post('events/destroy_gallery', 'Events@destroy_gallery')->name('events.destroy_gallery');
+Route::post('events/store_gallery', 'Events@store_gallery')->name('events.store_gallery');
+Route::get('events/edit_gallery', 'Events@edit_gallery')->name('events.edit_gallery');
+Route::post('events/update_gallery', 'Events@update_gallery')->name('events.update_gallery');
+
+//Campus
+
+Route::get('life_jim/campus', 'Life_jim@campus')->name('life_jim.campus');
+Route::get('life_jim/create_campus', 'Life_jim@create_campus')->name('life_jim.create_campus');
+Route::post('life_jim/destroy_campus', 'Life_jim@destroy_campus')->name('life_jim.destroy_campus');
+Route::post('life_jim/store_campus', 'Life_jim@store_campus')->name('life_jim.store_campus');
+Route::get('life_jim/edit_campus', 'Life_jim@edit_campus')->name('life_jim.edit_campus');
+Route::post('life_jim/update_campus', 'Life_jim@update_campus')->name('life_jim.update_campus');
+
+//Computer Lab
+
+
+Route::get('life_jim/computer_lab', 'Life_jim@computer_lab')->name('life_jim.computer_lab');
+Route::get('life_jim/create_computer_lab', 'Life_jim@create_computer_lab')->name('life_jim.create_computer_lab');
+Route::post('life_jim/destroy_computer_lab', 'Life_jim@destroy_computer_lab')->name('life_jim.destroy_computer_lab');
+Route::post('life_jim/store_computer_lab', 'Life_jim@store_computer_lab')->name('life_jim.store_computer_lab');
+Route::get('life_jim/edit_computer_lab', 'Life_jim@edit_computer_lab')->name('life_jim.edit_computer_lab');
+Route::post('life_jim/update_computer_lab', 'Life_jim@update_computer_lab')->name('life_jim.update_computer_lab');
+
+//library
+
+Route::get('life_jim/library', 'Life_jim@library')->name('life_jim.library');
+Route::get('life_jim/create_library', 'Life_jim@create_library')->name('life_jim.create_library');
+Route::post('life_jim/destroy_library', 'Life_jim@destroy_library')->name('life_jim.destroy_library');
+Route::post('life_jim/store_library', 'Life_jim@store_library')->name('life_jim.store_library');
+Route::get('life_jim/edit_library', 'Life_jim@edit_library')->name('life_jim.edit_library');
+Route::post('life_jim/update_library', 'Life_jim@update_library')->name('life_jim.update_library');
+
+// Auditorium
+Route::get('life_jim/auditorium', 'Life_jim@auditorium')->name('life_jim.auditorium');
+Route::get('life_jim/create_auditorium', 'Life_jim@create_auditorium')->name('life_jim.create_auditorium');
+Route::post('life_jim/destroy_auditorium', 'Life_jim@destroy_auditorium')->name('life_jim.destroy_auditorium');
+Route::post('life_jim/store_auditorium', 'Life_jim@store_auditorium')->name('life_jim.store_auditorium');
+Route::get('life_jim/edit_auditorium', 'Life_jim@edit_auditorium')->name('life_jim.edit_auditorium');
+Route::post('life_jim/update_auditorium', 'Life_jim@update_auditorium')->name('life_jim.update_auditorium');
+
+//Board Room
+
+Route::get('life_jim/board_room', 'Life_jim@board_room')->name('life_jim.board_room');
+Route::get('life_jim/create_board_room', 'Life_jim@create_board_room')->name('life_jim.create_board_room');
+Route::post('life_jim/destroy_board_room', 'Life_jim@destroy_board_room')->name('life_jim.destroy_board_room');
+Route::post('life_jim/store_board_room', 'Life_jim@store_board_room')->name('life_jim.store_board_room');
+Route::get('life_jim/edit_board_room', 'Life_jim@edit_board_room')->name('life_jim.edit_board_room');
+Route::post('life_jim/update_board_room', 'Life_jim@update_board_room')->name('life_jim.update_board_room');
+
+//hostels
+
+Route::get('life_jim/hostels', 'Life_jim@hostels')->name('life_jim.hostels');
+Route::get('life_jim/create_hostels', 'Life_jim@create_hostels')->name('life_jim.create_hostels');
+Route::post('life_jim/destroy_hostels', 'Life_jim@destroy_hostels')->name('life_jim.destroy_hostels');
+Route::post('life_jim/store_hostels', 'Life_jim@store_hostels')->name('life_jim.store_hostels');
+Route::get('life_jim/edit_hostels', 'Life_jim@edit_hostels')->name('life_jim.edit_hostels');
+Route::post('life_jim/update_hostels', 'Life_jim@update_hostels')->name('life_jim.update_hostels');
+
+//wifi
+
+Route::get('life_jim/wifi', 'Life_jim@wifi')->name('life_jim.wifi');
+Route::get('life_jim/create_wifi', 'Life_jim@create_wifi')->name('life_jim.create_wifi');
+Route::post('life_jim/destroy_wifi', 'Life_jim@destroy_wifi')->name('life_jim.destroy_wifi');
+Route::post('life_jim/store_wifi', 'Life_jim@store_wifi')->name('life_jim.store_wifi');
+Route::get('life_jim/edit_wifi', 'Life_jim@edit_wifi')->name('life_jim.edit_wifi');
+Route::post('life_jim/update_wifi', 'Life_jim@update_wifi')->name('life_jim.update_wifi');
+
+//student
+
+Route::get('life_jim/student', 'Life_jim@student')->name('life_jim.student');
+Route::get('life_jim/create_student', 'Life_jim@create_student')->name('life_jim.create_student');
+Route::post('life_jim/destroy_student', 'Life_jim@destroy_student')->name('life_jim.destroy_student');
+Route::post('life_jim/store_student', 'Life_jim@store_student')->name('life_jim.store_student');
+Route::get('life_jim/edit_student', 'Life_jim@edit_student')->name('life_jim.edit_student');
+Route::post('life_jim/update_student', 'Life_jim@update_student')->name('life_jim.update_student');
+
+//research
+
+Route::get('life_jim/research', 'Life_jim@research')->name('life_jim.research');
+Route::get('life_jim/create_research', 'Life_jim@create_research')->name('life_jim.create_research');
+Route::post('life_jim/destroy_research', 'Life_jim@destroy_research')->name('life_jim.destroy_research');
+Route::post('life_jim/store_research', 'Life_jim@store_research')->name('life_jim.store_research');
+Route::get('life_jim/edit_research', 'Life_jim@edit_research')->name('life_jim.edit_research');
+Route::post('life_jim/update_research', 'Life_jim@update_research')->name('life_jim.update_research');
+
+//Guest Speaker
+
+Route::get('guest_speaker/guest_speaker', 'Guest_speaker@guest_speaker')->name('guest_speaker.guest_speaker');
+Route::get('guest_speaker/create_guest_speaker', 'Guest_speaker@create_guest_speaker')->name('guest_speaker.create_guest_speaker');
+Route::post('guest_speaker/destroy_guest_speaker', 'Guest_speaker@destroy_guest_speaker')->name('guest_speaker.destroy_guest_speaker');
+Route::post('guest_speaker/store_guest_speaker', 'Guest_speaker@store_guest_speaker')->name('guest_speaker.store_guest_speaker');
+Route::get('guest_speaker/edit_guest_speaker', 'Guest_speaker@edit_guest_speaker')->name('guest_speaker.edit_guest_speaker');
+Route::post('guest_speaker/update_guest_speaker', 'Guest_speaker@update_guest_speaker')->name('guest_speaker.update_guest_speaker');
+//Recruiters
+Route::get('recruiters/index', 'Recruiters@index')->name('recruiters.index');
+Route::get('recruiters/create_recruiters', 'Recruiters@create_recruiters')->name('recruiters.create_recruiters');
+Route::post('recruiters/destroy_recruiters', 'Recruiters@destroy_recruiters')->name('recruiters.destroy_recruiters');
+Route::post('recruiters/store_recruiters', 'Recruiters@store_recruiters')->name('recruiters.store_recruiters');
+Route::get('recruiters/edit_recruiters', 'Recruiters@edit_recruiters')->name('recruiters.edit_recruiters');
+Route::post('recruiters/update_recruiters', 'Recruiters@update_recruiters')->name('recruiters.update_recruiters');
+//Director Message
+Route::get('director/index', 'Director@index')->name('director.index');
+Route::get('director/create_director', 'Director@create_director')->name('director.create_director');
+Route::post('director/destroy_director', 'Director@destroy_director')->name('director.destroy_director');
+Route::post('director/store_director', 'Director@store_director')->name('director.store_director');
+Route::get('director/edit_director', 'Director@edit_director')->name('director.edit_director');
+Route::post('director/update_director', 'Director@update_director')->name('director.update_director');

@@ -60,6 +60,7 @@
             <li><a href="{{ url('home-page/events') }}">Events</a></li>
             <li><a href="{{ url('home-page/in_focus') }}">In Focus</a></li>
             <li><a href="{{ url('home-page/testimonial') }}">Testimonials</a></li>
+            <li><a href="{{ url('director/index') }}">Director Message</a></li>
           </ul>
         </li>
           <li class="treeview">
@@ -111,8 +112,8 @@
                                     </span>
                                   </a>
                                   <ul class="treeview-menu">
-                                    <li><a href="#">Our Recruiters</a></li>
-                                    <li><a href="#">Brouchers</a></li>
+                                    <li><a href="{{ url('recruiters/index') }}">Our Recruiters</a></li>
+                                    <li><a href="{{ url('admission/brochure') }}">Brouchers</a></li>
                                      <li><a href="{{ url('admission/criteria') }}">Student Training </a></li>
                                   </ul>
                                 </li>
@@ -124,7 +125,15 @@
                                    </span>
                                    </a>
                                    <ul class="treeview-menu">
-                                        <li><a href="#">Facilities</a></li>
+                                        <li><a href="{{ url('life_jim/campus') }}">The Campus</a></li>
+                                        <li><a href="{{ url('life_jim/computer_lab') }}">Computer Lab</a></li>
+                                        <li><a href="{{ url('life_jim/library') }}">The library</a></li>
+                                        <li><a href="{{ url('life_jim/auditorium') }}">Auditorium</a></li>
+                                        <li><a href="{{ url('life_jim/board_room') }}">Board Room</a></li>
+                                        <li><a href="{{ url('life_jim/hostels') }}">Hostels</a></li>
+                                        <li><a href="{{ url('life_jim/wifi') }}">WIFI Campus</a></li>
+                                        <li><a href="{{ url('life_jim/student') }}">Student Affinities</a></li>
+                                        <li><a href="{{ url('life_jim/research') }}">Research Room</a></li>
                                    </ul>
                                 </li>
                                 <li class="treeview">
@@ -134,8 +143,8 @@
                                            </span>
                                       </a>
                                       <ul class="treeview-menu">
-                                             <li><a href="#">Events Photo Gallery</a></li>
-                                             <li><a href="#">Guest Speakers</a></li>
+                                             <li><a href="{{ url('events/gallery') }}">Events Photo Gallery</a></li>
+                                             <li><a href="{{ url('guest_speaker/guest_speaker') }}">Guest Speakers</a></li>
                                              <li><a href="#">CEO Of Month</a></li>
                                       </ul>
                                 </li>
